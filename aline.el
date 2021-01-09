@@ -61,21 +61,6 @@ BEG and END mark the limits of the region."
   (align-regexp beg end
                 "\\(\\s-*\\):" 1 0 t))
 
-(with-eval-after-load 'hydra
-  (defhydra hydra-align (:color blue)
-    "Align"
-    ("," align-comma "Comma")
-    ("." align-dot "Dot")
-    (":" align-colon "Colon")
-    ("=" align-equals "Equal")
-    ("SPC" align-whitespace "Space")
-    ("&" align-ampersand "Ampersand")
-    ("c" align-current "Current")
-    ("r" align-regexp "Regexp")
-    ("q" nil))
-  (hydra-set-property 'hydra-align :verbosity 1)
-  (bind-keys ("C-x \\" . hydra-align/body)))
-
 (provide 'aline)
 
 ;;; aline.el ends here
